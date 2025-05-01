@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: redis
+  namespace: argocd
+spec:
+  destination:
+    namespace: db
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/your-org/infra
+    targetRevision: HEAD
+    path: db/redis
+    helm:
+      parameters:
+        - name: architecture
+          value: standalone
+        - name: auth.enabled
+          value: "true"
+        - name: auth.password
+          value: yourStrongPassword
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
