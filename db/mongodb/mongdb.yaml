@@ -18,6 +18,15 @@ spec:
           value: "true"
         - name: auth.rootPassword
           value: yourMongoRootPwd
+        # 메모리 용량 제한
+        - name: resources.requests.memory
+          value: 256Mi #IEC
+        - name: resources.limits.memory
+          value: 512Mi
+        # 기본값 시스템 램 50%
+        - name: extraFlags
+          value: "{--wiredTigerCacheSizeGB=0.25}"
+
   syncPolicy:
     automated:
       prune: true

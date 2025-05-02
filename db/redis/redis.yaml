@@ -16,6 +16,18 @@ spec:
       parameters:
         - name: architecture
           value: standalone
+        #Helm redis 기본 설정 Cluster
+        - name: replica.replicaCount
+          value: 0
+        - name: replica.persistence.enabled
+          value: false
+        - name: metrics.enabled
+          value: false
+        #용량 제한
+        - name: master.resources.requests.memory
+          value: 128Mi
+        - name: master.resources.limits.memory
+          value: 256Mi
         - name: auth.enabled
           value: "true"
         - name: auth.password
