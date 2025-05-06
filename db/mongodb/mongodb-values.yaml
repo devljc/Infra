@@ -1,0 +1,27 @@
+auth:
+  enabled: true
+  rootUser: root
+  rootPassword: your-root-password
+  username: app_user
+  password: your-app-password
+  database: app_db
+
+architecture: standalone
+
+service:
+  type: NodePort
+  nodePort: 30008
+
+persistence:
+  enabled: true
+  size: 8Gi
+  storageClass: ""
+
+resources:
+  requests:
+    memory: 256Mi
+  limits:
+    memory: 512Mi
+
+extraFlags:
+  - "--wiredTigerCacheSizeGB=0.25"

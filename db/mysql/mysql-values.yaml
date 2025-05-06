@@ -1,0 +1,21 @@
+auth:
+  rootPassword: your-root-password
+  database: app_db
+  username: app_user
+  password: your-app-password
+
+primary:
+  service:
+    type: NodePort
+    nodePort: 30006
+
+  persistence:
+    enabled: true
+    size: 8Gi
+    storageClass: ""
+
+  resources:
+    limits:
+      memory: 512Mi
+    requests:
+      memory: 512Mi
