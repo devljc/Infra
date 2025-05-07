@@ -139,7 +139,7 @@ EOF
 #echo "\n🔌 IngressRouteTCP 생성..."
 #cat <<EOF | kubectl apply -n $DB_NS -f -
 #---
-#apiVersion: traefik.containo.us/v1alpha1
+#apiVersion: traefik.io/v1alpha1 #traefik 3.x 부터는 traefik.io로 변경됨
 #kind: IngressRouteTCP
 #metadata:
 #  name: redis-tcp
@@ -154,7 +154,7 @@ EOF
 #  tls:
 #    passthrough: true
 #---
-#apiVersion: traefik.containo.us/v1alpha1
+#apiVersion: traefik.io/v1alpha1
 #kind: IngressRouteTCP
 #metadata:
 #  name: mongo-tcp
@@ -169,7 +169,7 @@ EOF
 #  tls:
 #    passthrough: true
 #---
-#apiVersion: traefik.containo.us/v1alpha1
+#apiVersion: traefik.io/v1alpha1
 #kind: IngressRouteTCP
 #metadata:
 #  name: mysql-tcp
